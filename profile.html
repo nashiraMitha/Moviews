@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Moviews - Detail Film</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">Moviews</div>
+
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Reviews</a>
+        <a href="#watchlist">Watchlist</a>
+        <a href="detail.html" class="active">Profile</a>
+      </nav>
+
+      <div class="header-right">
+        <button class="nav-cta">+ Add Review</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article class="detail-wrapper">
+      <section class="detail-main">
+        <img class="detail-poster" src="assets/A Time Called You.jpg" alt="Poster film contoh">
+
+        <div class="detail-info">
+          <h1 id="detailTitle">A Time Called You</h1>
+          <p class="detail-meta">
+            <span id="detailType">Series</span> •
+            <span id="detailRegion">Korea</span> •
+            <span id="detailYear">2023</span> •
+            <span id="detailPlatform">Netflix</span>
+          </p>
+          <p class="detail-synopsis">
+            Seorang perempuan yang masih belum move on dari pacarnya yang meninggal,
+            tiba-tiba terlempar ke masa lalu dan bertemu seseorang yang mirip mantannya.
+          </p>
+
+          <section class="rating-section">
+            <h2>Rating Kamu</h2>
+            <div class="stars" id="ratingStars" aria-label="Rating bintang">
+              <button class="star" data-value="1">★</button>
+              <button class="star" data-value="2">★</button>
+              <button class="star" data-value="3">★</button>
+              <button class="star" data-value="4">★</button>
+              <button class="star" data-value="5">★</button>
+            </div>
+            <p id="ratingResult">Belum ada rating.</p>
+          </section>
+
+          <section class="where-to-watch">
+            <h2>Where to Watch</h2>
+            <span class="badge badge-platform">Netflix</span>
+          </section>
+        </div>
+      </section>
+
+      <section class="review-section">
+        <h2>Mini Review</h2>
+        <form id="reviewForm">
+          <label for="reviewText">Tulis review singkat</label>
+          <textarea id="reviewText" rows="3" required></textarea>
+          <button type="submit" class="btn-primary">Kirim</button>
+        </form>
+
+        <ul id="reviewList" class="review-list">
+          <!-- Review baru akan muncul di sini -->
+        </ul>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main">
+      <div class="footer-col footer-brand">
+        <h3>Moviews</h3>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="profile.html">Reviews</a>
+        <a href="#watchlist">Watchlist</a>
+        <a href="detail.html">Profile</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#top">Top Rated</a>
+        <a href="#watchlist">My Watchlist</a>
+        <a href="detail.html">Sample Detail</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Socials</h4>
+        <div class="footer-icons">
+          <span>IG</span>
+          <span>X</span>
+          <span>TT</span>
+          <span>GH</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Moviews – Tugas Frontend</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
