@@ -1,649 +1,818 @@
-:root {
-  /* Gold palette */
-  --dark1: #19171b;
-  --dark2: #252628;
-  --gold:  #d29f22;
-  --ruby:  #5d0018;
+/* ==MOVIEWS — DARK GOLD PREMIUM THEME (FINAL CLEAN VERSION)== */
 
-  --bg: var(--dark1);
-  --bg-soft: #1e1d21;
-  --bg-card: #232227;
-  --accent: var(--gold);
-  --accent-soft: #f0c85a;
+:root {
+  --dark1: #0d0d0f;
+  --dark2: #131316;
+  --card: #1a1a1d;
+  --gold: #d29f22;
+  --gold-soft: #f0c85a;
   --text: #f8f5ef;
   --muted: #a5a5a5;
-  --radius: 14px;
 }
 
-*,
-*::before,
-*::after {
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Poppins", sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(210, 159, 34, 0.18), transparent 60%),
-    radial-gradient(circle at bottom right, rgba(93, 0, 24, 0.25), transparent 60%),
-    linear-gradient(160deg, #0d0b10, var(--bg));
+    radial-gradient(circle at 15% 0%, rgba(210,159,34,0.18), transparent 60%),
+    radial-gradient(circle at 85% 100%, rgba(210,159,34,0.15), transparent 65%),
+    linear-gradient(180deg, #0c0c0e, #161518, #0e0d0f);
   color: var(--text);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
-/* HEADER NAVBAR */
-
+/* == NAVBAR === */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 50;
-  background: rgba(8, 7, 10, 0.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(37, 38, 40, 0.8);
+  width: 100%;
+  padding: 0.8rem 0;
+  background: #0b0b0d;
+  z-index: 100;
 }
 
 .header-inner {
   max-width: 1200px;
-  margin: 0.4rem auto;
-  padding: 0.5rem 1.5rem;
-  background: linear-gradient(90deg, #141319, #252628);
-  border-radius: 999px;
-  display: flex;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 2rem;
   align-items: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+  padding: 0 1.5rem;
 }
 
 .logo {
+  font-size: 1.4rem;
   font-weight: 700;
-  font-size: 1.2rem;
-  margin-right: 1.5rem;
+}
+
+.header-search input {
+  width: 100%;
+  max-width: 260px;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: #1c1c1f;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: white;
+}
+
+.header-search input:focus {
+  max-width: 340px;
+  border-color: var(--gold);
 }
 
 .main-nav {
-  flex: 1;
   display: flex;
-  justify-content: center;
-  gap: 1.8rem;
+  gap: 2rem;
 }
 
 .main-nav a {
-  color: var(--muted);
   text-decoration: none;
-  font-size: 0.95rem;
-  padding-bottom: 0.15rem;
+  color: var(--muted);
+  padding-bottom: 2px;
   border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
-.main-nav a.active,
-.main-nav a:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.header-right {
-  margin-left: 1.5rem;
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--gold);
+  border-color: var(--gold);
 }
 
 .nav-cta {
-  padding: 0.35rem 0.9rem;
+  padding: 0.45rem 1rem;
   border-radius: 999px;
-  border: 1px solid rgba(210, 159, 34, 0.7);
   background: transparent;
-  color: var(--accent-soft);
-  font-size: 0.8rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .nav-cta:hover {
-  background: var(--accent-soft);
-  color: #141319;
-  box-shadow: 0 8px 20px rgba(210, 159, 34, 0.5);
+  background: var(--gold);
+  color: black;
 }
 
-/* LAYOUT UMUM */
-
+/* ============================================================
+   MAIN CONTAINER
+============================================================ */
 main {
   max-width: 1200px;
-  margin: 1.4rem auto 3rem;
+  margin: 120px auto 3rem;
   padding: 0 1rem;
 }
 
-/* HERO */
-
-.hero {
-  background:
-    linear-gradient(135deg, rgba(210, 159, 34, 0.12), transparent 60%),
-    linear-gradient(135deg, #232227, #141319);
-  padding: 1.7rem 1.7rem;
-  border-radius: 22px;
-  margin-bottom: 1.8rem;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-  border-left: 4px solid var(--accent);
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 1.6rem;
-  align-items: center;
-}
-
-.hero-left h1 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 2rem;
-}
-
-.hero-left p {
-  margin: 0;
-  color: var(--muted);
-  max-width: 470px;
-}
-
-.hero-actions {
-  margin-top: 1rem;
+/* ============================================================
+   HERO SECTION
+============================================================ */
+.hero-new {
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
   display: flex;
-  gap: 0.7rem;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #181820, #0f0f13);
+}
+
+.hero-content {
+  max-width: 520px;
+}
+
+.hero-new h1 {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.hero-new p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
 }
 
 .btn-primary {
   padding: 0.5rem 1.1rem;
+  background: var(--gold);
   border-radius: 999px;
   border: none;
-  background: var(--accent);
-  color: #141319;
   font-weight: 600;
-  cursor: pointer;
-  font-size: 0.9rem;
-  box-shadow: 0 10px 22px rgba(210, 159, 34, 0.5);
-  transition: background 0.15s ease, transform 0.1s ease;
 }
 
 .btn-primary:hover {
-  background: var(--accent-soft);
-  transform: translateY(-1px);
+  background: var(--gold-soft);
 }
 
 .btn-ghost {
   padding: 0.5rem 1.1rem;
   border-radius: 999px;
-  border: 1px solid rgba(210, 159, 34, 0.5);
+  border: 1px solid var(--gold);
   background: transparent;
-  color: var(--accent-soft);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  color: var(--gold);
 }
 
-.btn-ghost:hover {
-  background: rgba(210, 159, 34, 0.1);
-}
-
-.hero-right {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.hero-poster-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 70px);
-  gap: 0.5rem;
-}
-
-.hero-poster {
-  border-radius: 18px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 120px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
-}
-
-.poster-1 {
-  background-image: url("../assets/A Time Called You.jpg");
-}
-
-.poster-2 {
-  background-image: url("../assets/The Summer I Turned Pretty.jpg");
-}
-
-.poster-3 {
-  background-image: url("../assets/Moving.jpg");
-}
-
-/* FILTERS */
-
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.filter-group {
-  display: flex;
-  flex-direction: column;
-  min-width: 150px;
-}
-
-.filter-group label {
-  font-size: 0.8rem;
-  color: var(--muted);
-  margin-bottom: 0.25rem;
-}
-
-.filter-group select {
-  padding: 0.45rem 0.8rem;
-  border-radius: 999px;
-  border: 1px solid rgba(120, 120, 120, 0.4);
-  background: #141319;
-  color: var(--text);
-  outline: none;
-  font-size: 0.9rem;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-
-.filter-group select:focus {
-  border-color: var(--accent);
-  background: #19171b;
-}
-
-/* MOVIE GRID */
-
-.movie-section {
-  background: rgba(20, 19, 25, 0.95);
-  border-radius: 22px;
-  padding: 1.1rem 1rem 1.7rem;
-  border: 1px solid rgba(60, 60, 60, 0.9);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 0.9rem;
-}
-
-.section-header h2 {
-  margin: 0;
-}
-
-.section-header p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.85rem;
-}
-
-.movie-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 0.85rem;
-}
-
-.movie-card {
-  background: var(--bg-card);
-  border-radius: 18px;
+.hero-banner {
+  width: 40%;
+  height: 420px;
+  border-radius: 20px;
   overflow: hidden;
-  padding-bottom: 0.45rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid rgba(0, 0, 0, 0.45);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.75);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  background: #10131c;
 }
 
-.movie-card:hover {
+/* ============================================================
+   HOME GRID (Rekomendasi, Top rated)
+============================================================ */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.2rem;
+}
+
+.home-card {
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: .2s;
+}
+
+.home-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.9);
-  border-color: rgba(210, 159, 34, 0.7);
 }
 
-.movie-card img {
+.home-card img {
   width: 100%;
-  display: block;
-  aspect-ratio: 2/3;
+  height: 180px;
   object-fit: cover;
 }
 
-.movie-body {
-  padding: 0.4rem 0.5rem;
+.home-card-body {
+  padding: 0.6rem 0.8rem;
 }
 
-.movie-title {
-  font-size: 0.85rem;
-  margin: 0 0 0.15rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.home-card-title {
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
-.movie-meta {
+.home-card-meta {
   font-size: 0.75rem;
   color: var(--muted);
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 0.1rem 0.5rem;
-  font-size: 0.7rem;
-}
+/* ============================================================
+   HERO TRANSITION (FINAL FIX)
+============================================================ */
 
-.badge-platform {
-  background: rgba(37, 38, 40, 0.9);
-  color: var(--muted);
-}
+.hero-new {
+  border-radius: 20px;
+  padding: 3rem;
+  margin-bottom: 3rem;
 
-.badge-type {
-  background: rgba(210, 159, 34, 0.22);
-  color: var(--accent-soft);
-}
-
-.star-display {
-  color: var(--accent);
-  font-size: 0.8rem;
-}
-
-/* PROFILE */
-
-.profile-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+
+  background: linear-gradient(135deg, #181820, #0f0f13);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Text area */
+.hero-content {
+  max-width: 520px;
+}
+
+.hero-new h1 {
+  font-size: 2.6rem;
+  margin-bottom: 1rem;
+}
+
+.hero-new p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* BUTTONS */
+.hero-btns {
+  display: flex;
   gap: 1rem;
-  margin-bottom: 1.1rem;
 }
 
-.avatar img {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 2px solid rgba(210, 159, 34, 0.8);
+/* ------------------------------------------------------------
+   SLIDER
+------------------------------------------------------------ */
+.hero-banner {
+  width: 42%;
+  height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #10131c;
+  position: relative;
 }
 
-.profile-info h1 {
-  margin: 0 0 0.2rem;
-}
-
-.profile-info p {
-  margin: 0.05rem 0;
-}
-
-.profile-tabs {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.profile-tabs .tab {
-  padding: 0.35rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(120, 120, 120, 0.5);
-  background: transparent;
-  color: var(--muted);
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-}
-
-.profile-tabs .tab.active {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #141319;
-}
-
-.profile-tabs .tab:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-
-.profile-filters {
-  margin-bottom: 1rem;
-}
-
-/* DETAIL */
-
-.detail-wrapper {
-  background: rgba(20, 19, 25, 0.97);
-  border-radius: 22px;
-  padding: 1.6rem;
-  border: 1px solid rgba(60, 60, 60, 0.9);
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.8);
-}
-
-.detail-main {
-  display: grid;
-  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
-  gap: 1.5rem;
-}
-
-.detail-poster {
+/* Slider layer */
+.hero-slide {
   width: 100%;
-  border-radius: 18px;
-  box-shadow: 0 15px 32px rgba(0, 0, 0, 0.9);
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+
+  animation: heroSlide 12s infinite ease-in-out;
+  border-radius: 20px;
 }
 
-.detail-meta {
-  color: var(--muted);
-  font-size: 0.9rem;
+/* ------------------------------------------------------------
+   ANIMATION — FIXED PATH (no spaces)
+------------------------------------------------------------ */
+@keyframes heroSlide {
+  0%   { background-image: url("../assets/A-Time-Called-You.jpg"); }
+  33%  { background-image: url("../assets/The-Summer-I-Turned-Pretty.jpg"); }
+  66%  { background-image: url("../assets/Moving.jpg"); }
+  100% { background-image: url("../assets/A-Time-Called-You.jpg"); }
 }
 
-.detail-synopsis {
-  margin-top: 0.8rem;
-  line-height: 1.5;
-}
-
-.rating-section {
-  margin-top: 1rem;
-}
-
-.stars {
-  display: inline-flex;
-  gap: 0.25rem;
-  margin-bottom: 0.3rem;
-}
-
-.star {
-  background: transparent;
-  border: none;
-  font-size: 1.6rem;
-  cursor: pointer;
-  color: rgba(165, 165, 165, 0.5);
-  padding: 0;
-  transition: color 0.15s ease, transform 0.1s ease;
-}
-
-.star:hover {
-  transform: translateY(-1px);
-}
-
-.star.active {
-  color: var(--accent);
-}
-
-.where-to-watch {
-  margin-top: 1rem;
-}
-
-.where-to-watch .badge-platform {
-  background: rgba(210, 159, 34, 0.22);
-  color: var(--accent-soft);
-}
-
-/* REVIEW */
-
-.review-section {
-  margin-top: 1.5rem;
-}
-
-#reviewForm {
+/* WRAPPED SECTION FIX */
+.wrapped-list {
+  list-style: none;
+  padding: 1rem 1.2rem;
+  background: #1b1b1d;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 0.6rem;
 }
 
-#reviewText {
-  border-radius: 0.9rem;
-  border: 1px solid rgba(120, 120, 120, 0.6);
-  background: #141319;
-  color: var(--text);
-  padding: 0.6rem 0.7rem;
-  resize: vertical;
-  min-height: 80px;
+.wrapped-list li {
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
-#reviewText::placeholder {
-  color: rgba(165, 165, 165, 0.7);
+.wrapped-list strong {
+  color: var(--gold);
 }
 
-.review-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.section-box {
+  background: #1a1a1d;
+  border-radius: 18px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255,255,255,0.05);
 }
 
-.review-list li {
-  background: #18171c;
-  padding: 0.6rem 0.75rem;
-  border-radius: 0.9rem;
-  font-size: 0.9rem;
-  margin-bottom: 0.45rem;
-  border: 1px solid rgba(60, 60, 60, 0.9);
-}
-
-/* FOOTER ala contact page */
+/* ============================================================
+   FOOTER — PREMIUM DARK GOLD VERSION
+============================================================ */
 
 .site-footer {
-  background: #121115;
-  margin-top: 2rem;
+  background: #111013;
+  padding-top: 2.5rem;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
+/* GRID UTAMA FOOTER */
 .footer-main {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 1.8rem 1.5rem 1.4rem;
+  margin: auto;
+  padding: 1rem 1.5rem;
+
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-
-.footer-col h4 {
-  margin: 0 0 0.5rem;
-  font-size: 0.95rem;
-  color: var(--accent-soft);
+  gap: 2rem;
 }
 
 .footer-brand h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1.3rem;
-  color: var(--accent);
+  font-size: 1.4rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
 }
 
+.footer-brand p {
+  color: var(--muted);
+  line-height: 1.5rem;
+}
+
+/* Heading */
+.footer-col h4 {
+  color: var(--gold-soft);
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+/* Links */
 .footer-col a {
   display: block;
   text-decoration: none;
   color: var(--muted);
+  margin-bottom: 0.35rem;
   font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-  transition: color 0.15s ease;
+  transition: .2s ease;
 }
 
 .footer-col a:hover {
-  color: var(--accent);
+  color: var(--gold);
 }
 
+/* Social Icons */
 .footer-icons {
   display: flex;
   gap: 0.5rem;
 }
 
 .footer-icons span {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  border: 1px solid rgba(165, 165, 165, 0.6);
-  display: inline-flex;
+  border: 1px solid rgba(255,255,255,0.25);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   color: var(--muted);
+  transition: .2s ease;
 }
 
+.footer-icons span:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Bottom bar */
 .footer-bottom {
-  background: var(--accent);
   text-align: center;
-  padding: 0.5rem 1rem;
+  padding: 0.9rem;
+  background: #0d0c0f;
+  margin-top: 2rem;
 }
 
 .footer-bottom p {
-  margin: 0;
-  font-size: 0.8rem;
-  color: #141319;
-  font-weight: 600;
+  color: var(--gold);
+  font-size: 0.9rem;
+  opacity: 0.9;
 }
 
-/* RESPONSIVE */
+/* ============================================================
+   RESPONSIVE FOOTER
+============================================================ */
 
-@media (max-width: 860px) {
-  .header-inner {
-    padding: 0.5rem 1rem;
-  }
-
-  .main-nav {
-    gap: 1.2rem;
-    font-size: 0.85rem;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-right {
-    justify-content: flex-start;
-  }
-
-  .hero-poster-grid {
-    grid-template-columns: repeat(3, 70px);
-  }
-}
-
-@media (max-width: 720px) {
-  .header-inner {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .logo {
-    margin-right: 0.8rem;
-  }
-
-  .header-right {
-    margin-left: 0.8rem;
-  }
-
-  .filters {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .detail-main {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 900px) {
   .footer-main {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 540px) {
   .footer-main {
     grid-template-columns: 1fr;
   }
+  .footer-col {
+    margin-bottom: 1rem;
+  }
 }
+
+/* ============================================================
+   REVIEWS (Diary) — layout & theme
+============================================================ */
+
+/* ruang aman dari navbar fixed */
+.reviews-page .reviews-container {
+  max-width: 900px;
+  margin: 140px auto 3rem;
+  padding: 0 1rem;
+}
+
+/* heading */
+.reviews-page .reviews-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: .25rem;
+}
+.reviews-page .reviews-sub {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* blok per bulan */
+.reviews-page .reviews-month {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.reviews-page .month-title {
+  display: inline-block;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  color: #111;
+  background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  margin-bottom: .8rem;
+}
+
+/* satu baris review */
+.reviews-page .review-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  align-items: start;
+  padding: .75rem;
+  border-radius: 12px;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.reviews-page .review-row:hover {
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+}
+
+/* poster */
+.reviews-page .review-poster {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: block;
+}
+
+/* info kanan */
+.reviews-page .review-info {
+  padding-top: .1rem;
+}
+
+.reviews-page .review-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.reviews-page .review-year {
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: .35rem;
+}
+
+/* meta: bintang + tanggal */
+.reviews-page .review-meta {
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+  margin: .35rem 0 .5rem;
+}
+
+.reviews-page .review-stars {
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: var(--gold);
+}
+.reviews-page .review-when {
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+/* teks ulasan */
+.reviews-page .review-text {
+  color: #ddd;
+  line-height: 1.55;
+  font-size: .95rem;
+}
+
+/* pemisah tiap item di dalam bulan */
+.reviews-page .reviews-month .review-row + .review-row {
+  border-top: 1px dashed rgba(255,255,255,0.1);
+  margin-top: .75rem;
+  padding-top: 1rem;
+}
+
+/* responsive */
+@media (max-width: 720px) {
+  .reviews-page .review-row {
+    grid-template-columns: 90px 1fr;
+  }
+  .reviews-page .review-poster {
+    height: 130px;
+  }
+  .reviews-page .reviews-container {
+    margin-top: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews-page .review-row {
+    grid-template-columns: 1fr;
+  }
+  .reviews-page .review-poster {
+    height: 220px;
+  }
+}
+
+
+
+/* ============================
+   WATCHLIST PAGE
+============================ */
+
+.watchlist-page {
+  max-width: 1200px;
+  margin: 140px auto 3rem;
+  padding: 0 1rem;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.page-sub {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Filter dropdown row */
+.filter-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.filter-row select {
+  padding: 0.45rem 0.7rem;
+  background: #1a1a1b;
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* WATCHLIST GRID */
+.watchlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+/* CARD */
+.watchlist-item {
+  background: #141416;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: 0.25s ease;
+}
+
+.watchlist-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+}
+
+.watchlist-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.watchlist-caption {
+  text-align: center;
+  padding: .7rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+
+/* ============================================================
+   PROFILE HEADER
+============================================================ */
+.profile-header {
+  margin-top: 140px;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255,255,255,0.2);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-username {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.profile-bio {
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.profile-stats {
+  margin-top: 1.4rem;
+  display: flex;
+  gap: 3rem;
+}
+
+.profile-stat {
+  text-align: center;
+}
+
+.profile-stat .number {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.profile-stat .label {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.chip {
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  padding:.38rem .9rem;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.95rem;
+  line-height:1;
+  border:none;
+  cursor:pointer;
+  color:#111; /* teks hitam seperti badge bulan */
+  background: linear-gradient(135deg,#f6d878 0%, #e6b93a 40%, #d29f22 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.35),
+    0 4px 14px rgba(0,0,0,.25);
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+  text-decoration:none; /* kalau dipakai di <a> */
+}
+
+.chip:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.4),
+    0 6px 16px rgba(0,0,0,.3);
+}
+
+.chip:active {
+  transform: translateY(0);
+  filter: brightness(.98);
+}
+
+/* Versi icon kecil (untuk “…” ) */
+.chip--icon {
+  width:34px;
+  height:34px;
+  padding:0;
+  justify-content:center;
+  font-size:1.05rem; /* ukuran titik tiga */
+}
+
+/* Baris judul + actions rapi satu garis */
+.profile-topline {
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  flex-wrap:wrap;
+}
+
+/* Jaga jarak kecil dari avatar */
+.profile-header .profile-username {
+  margin-right:.25rem;
+}
+
+
+/* ============================================================
+   FAVORITE FILMS
+============================================================ */
+
+.favorites-section {
+  background: #1a1a1d;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.favorites-section h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+
+.favorite-card {
+  background: #141416;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.favorite-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 26px rgba(0,0,0,0.45);
+}
+
+.favorite-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.favorite-info {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.favorite-info h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.hero-slide {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+

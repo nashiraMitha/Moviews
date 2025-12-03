@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Moviews - Reviews</title>
+  <title>Moviews - Detail Film</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,9 +13,9 @@
 
       <nav class="main-nav">
         <a href="index.html">Home</a>
-        <a href="profile.html" class="active">Reviews</a>
+        <a href="detail.html">Reviews</a>
         <a href="#watchlist">Watchlist</a>
-        <a href="detail.html">Profile</a>
+        <a href="profiles.html" class="active">Profile</a>
       </nav>
 
       <div class="header-right">
@@ -25,87 +25,78 @@
   </header>
 
   <main>
-    <section class="profile-header">
-      <div class="avatar">
-        <img src="https://via.placeholder.com/64" alt="Avatar pengguna">
-      </div>
-      <div class="profile-info">
-        <h1>nawa</h1>
-        <p>Film & drama enthusiast • Suka binge-watch K-Drama</p>
-        <p><strong id="totalWatched">0</strong> ditonton • Rata-rata rating: <strong id="avgRating">-</strong></p>
-      </div>
-    </section>
+    <article class="detail-wrapper">
+      <section class="detail-main">
+        <img class="detail-poster" src="assets/A Time Called You.jpg" alt="Poster film contoh">
 
-    <nav class="profile-tabs">
-      <button class="tab active">Films</button>
-      <button class="tab" disabled>Reviews (dummy)</button>
-      <button class="tab" disabled>Watchlist (dummy)</button>
-    </nav>
+        <div class="detail-info">
+          <h1 id="detailTitle">A Time Called You</h1>
+          <p class="detail-meta">
+            <span id="detailType">Series</span> •
+            <span id="detailRegion">Korea</span> •
+            <span id="detailYear">2023</span> •
+            <span id="detailPlatform">Netflix</span>
+          </p>
+          <p class="detail-synopsis">
+            Seorang perempuan yang masih belum move on dari pacarnya yang meninggal,
+            tiba-tiba terlempar ke masa lalu dan bertemu seseorang yang mirip mantannya.
+          </p>
 
-    <section class="filters profile-filters">
-      <div class="filter-group">
-        <label for="profilePlatformFilter">Platform</label>
-        <select id="profilePlatformFilter">
-          <option value="all">Semua</option>
-          <option value="Netflix">Netflix</option>
-          <option value="Prime Video">Prime Video</option>
-          <option value="Disney+">Disney+</option>
-          <option value="HBO Go">HBO Go</option>
-        </select>
-      </div>
+          <section class="rating-section">
+            <h2>Rating Kamu</h2>
+            <div class="stars" id="ratingStars" aria-label="Rating bintang">
+              <button class="star" data-value="1">★</button>
+              <button class="star" data-value="2">★</button>
+              <button class="star" data-value="3">★</button>
+              <button class="star" data-value="4">★</button>
+              <button class="star" data-value="5">★</button>
+            </div>
+            <p id="ratingResult">Belum ada rating.</p>
+          </section>
 
-      <div class="filter-group">
-        <label for="profileTypeFilter">Jenis</label>
-        <select id="profileTypeFilter">
-          <option value="all">Semua</option>
-          <option value="movie">Film</option>
-          <option value="series">Series</option>
-        </select>
-      </div>
-
-      <div class="filter-group">
-        <label for="profileRegionFilter">Asal</label>
-        <select id="profileRegionFilter">
-          <option value="all">Semua</option>
-          <option value="western">Western</option>
-          <option value="korea">Korea</option>
-          <option value="japan">Jepang</option>
-          <option value="china">China</option>
-          <option value="indonesia">Indonesia</option>
-        </select>
-      </div>
-    </section>
-
-    <section class="movie-section">
-      <header class="section-header">
-        <h2>Watched</h2>
-      </header>
-
-      <section id="profileMovieGrid" class="movie-grid">
-        <!-- Card film diisi JS -->
+          <section class="where-to-watch">
+            <h2>Where to Watch</h2>
+            <span class="badge badge-platform">Netflix</span>
+          </section>
+        </div>
       </section>
-    </section>
+
+      <section class="review-section">
+        <h2>Mini Review</h2>
+        <form id="reviewForm">
+          <label for="reviewText">Tulis review singkat</label>
+          <textarea id="reviewText" rows="3" required></textarea>
+          <button type="submit" class="btn-primary">Kirim</button>
+        </form>
+
+        <ul id="reviewList" class="review-list">
+        </ul>
+      </section>
+    </article>
   </main>
 
+   <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <div class="footer-main">
+
       <div class="footer-col footer-brand">
         <h3>Moviews</h3>
+        <p>Kumpulkan, review, dan temukan film terbaikmu.</p>
       </div>
 
       <div class="footer-col">
         <h4>Navigation</h4>
         <a href="index.html">Home</a>
-        <a href="profile.html">Reviews</a>
-        <a href="#watchlist">Watchlist</a>
-        <a href="detail.html">Profile</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="watchlist.html">Watchlist</a>
+        <a href="profile.html">Profile</a>
       </div>
 
       <div class="footer-col">
         <h4>Quick Links</h4>
-        <a href="#top">Top Rated</a>
-        <a href="#watchlist">My Watchlist</a>
-        <a href="detail.html">Sample Detail</a>
+        <a href="#top-rated">Top Rated</a>
+        <a href="#wrapped">Wrapped</a>
+        <a href="profile.html">My Stats</a>
       </div>
 
       <div class="footer-col">
@@ -117,10 +108,11 @@
           <span>GH</span>
         </div>
       </div>
+
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Moviews – Tugas Frontend</p>
+      <p>© 2025 Moviews – nawranashira</p>
     </div>
   </footer>
 

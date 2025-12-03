@@ -2,24 +2,20 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Profile – Moviews</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Search – Moviews</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
 <header class="site-header">
   <div class="header-inner">
-
     <div class="logo">Moviews</div>
 
     <div class="header-search">
-      <input type="text" placeholder="Search movies..." />
+      <input type="text" id="searchInput" placeholder="Search movies...">
     </div>
 
     <nav class="main-nav">
@@ -30,41 +26,47 @@
     </nav>
 
     <button class="nav-cta">+ Add Review</button>
-
   </div>
 </header>
 
-  <!-- ===================== PROFILE HEADER ===================== -->
-  <section class="profile-header">
-    <img src="assets/Profile.jpg" alt="Foto Profil" class="profile-avatar">
+<main>
 
-    <div class="profile-info">
-      <div class="profile-name-row">
-        <h1 class="profile-name">nawranashira</h1>
-       <button class="chip">Edit Profile</button>
-         <button class="chip chip--icon" aria-label="More">…</button>
-      </div>
+  <section class="section-box">
+    <h2>Telusuri Film & Series</h2>
+    <p>Gunakan kolom pencarian atau filter untuk menemukan tontonan yang kamu mau.</p>
 
-      <p class="profile-bio">love to write and movies, so.. here it is</p>
+    <div class="filter-row">
+      <select id="filterType">
+        <option value="all">Jenis</option>
+        <option value="movie">Film</option>
+        <option value="series">Series</option>
+      </select>
 
-      <div class="profile-stats">
-        <div><strong>212</strong><span>FILMS</span></div>
-        <div><strong>36</strong><span>THIS YEAR</span></div>
-        <div><strong>52</strong><span>FOLLOWING</span></div>
-        <div><strong>50</strong><span>FOLLOWERS</span></div>
-      </div>
+      <select id="filterRegion">
+        <option value="all">Asal Negara</option>
+        <option value="korea">Korea</option>
+        <option value="japan">Jepang</option>
+        <option value="china">China</option>
+        <option value="western">Hollywood</option>
+        <option value="indonesia">Indonesia</option>
+      </select>
+
+      <select id="filterPlatform">
+        <option value="all">Platform</option>
+        <option value="Netflix">Netflix</option>
+        <option value="Disney+">Disney+</option>
+        <option value="Prime Video">Prime Video</option>
+      </select>
     </div>
+
+    <div class="home-grid" id="searchGrid"></div>
   </section>
-
-<!-- ===================== TOP FAVORITES ===================== -->
-<section class="favorites-section">
-  <h2 class="favorites-title">Favorite Films</h2>
-
-  <div class="favorites-grid" id="favoritesGrid">
-  </div>
-</section>
-
 </main>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
 
  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">

@@ -4,115 +4,128 @@
   <meta charset="UTF-8">
   <title>Moviews - Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- FONT POPPINS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <!-- NAVBAR -->
+<body class="home-page">
+
+  <!-- ===================== NAVBAR ===================== -->
   <header class="site-header">
-    <div class="header-inner">
-      <div class="logo">Moviews</div>
+  <div class="header-inner">
 
-      <nav class="main-nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="profile.html">Reviews</a>
-        <a href="#watchlist">Watchlist</a>
-        <a href="detail.html">Profile</a>
-      </nav>
+    <div class="logo">Moviews</div>
 
-      <div class="header-right">
-        <button class="nav-cta">+ Add Review</button>
-      </div>
+    <div class="header-search">
+      <input type="text" placeholder="Search movies..." />
     </div>
-  </header>
+
+    <nav class="main-nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="watchlist.html">Watchlist</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+
+    <button class="nav-cta">+ Add Review</button>
+
+  </div>
+</header>
 
   <main>
-    <!-- HERO -->
-    <section class="hero hero-home">
-      <div class="hero-left">
-        <h1>Find the Perfect Movie for Your Next Watch</h1>
-        <p>Kumpulkan film yang sudah kamu tonton, beri rating, dan temukan rekomendasi dari berbagai platform streaming.</p>
-        <div class="hero-actions">
-          <button class="btn-primary">Mulai Jelajahi</button>
-          <button class="btn-ghost">Lihat Watchlist</button>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="hero-poster-grid">
-          <div class="hero-poster poster-1"></div>
-          <div class="hero-poster poster-2"></div>
-          <div class="hero-poster poster-3"></div>
-        </div>
-      </div>
-    </section>
 
-    <!-- FILTERS -->
-    <section class="filters" aria-label="Filter film">
-      <div class="filter-group">
-        <label for="platformFilter">Platform</label>
-        <select id="platformFilter">
-          <option value="all">Semua</option>
-          <option value="Netflix">Netflix</option>
-          <option value="Prime Video">Prime Video</option>
-          <option value="Disney+">Disney+</option>
-          <option value="HBO Go">HBO Go</option>
-        </select>
-      </div>
+  <!-- HERO -->
+  <section class="hero-new">
+    <div class="hero-content">
+      <h1>Find the Perfect Movie for Your Next Watch</h1>
+      <p>Kumpulkan film yang sudah kamu tonton, beri rating, dan temukan rekomendasi terbaik.</p>
 
-      <div class="filter-group">
-        <label for="typeFilter">Jenis</label>
-        <select id="typeFilter">
-          <option value="all">Semua</option>
-          <option value="movie">Film</option>
-          <option value="series">Series</option>
-        </select>
-      </div>
+    <div class="hero-btns">
+      <button type="button" class="btn-primary"
+              onclick="window.location.href='search.html'">
+        Mulai Jelajahi
+      </button>
 
-      <div class="filter-group">
-        <label for="regionFilter">Asal</label>
-        <select id="regionFilter">
-          <option value="all">Semua</option>
-          <option value="western">Western</option>
-          <option value="korea">Korea</option>
-          <option value="japan">Jepang</option>
-          <option value="china">China</option>
-          <option value="indonesia">Indonesia</option>
-        </select>
-      </div>
-    </section>
+      <button type="button" class="btn-ghost"
+              onclick="window.location.href='watchlist.html'">
+        Lihat Watchlist
+      </button>
+    </div>
+  </div>
 
-    <!-- GRID FILM -->
-    <section class="movie-section">
-      <header class="section-header">
-        <h2>Rekomendasi</h2>
-        <p id="resultInfo"></p>
-      </header>
+    <div class="hero-banner">
+      <div class="hero-slide"></div>
+    </div>
+  </section>
 
-      <section id="movieGrid" class="movie-grid" aria-label="Daftar film dan series">
-        <!-- Card film akan diisi lewat JS -->
-      </section>
-    </section>
-  </main>
 
-  <!-- FOOTER -->
+  <!-- ===================== REKOMENDASI ===================== -->
+  <section class="section-box">
+    <div class="section-title">
+      <h2>Rekomendasi Untukmu</h2>
+      <p>Film & series pilihan sesuai selera kamu</p>
+    </div>
+
+    <div id="movieGrid" class="home-grid"></div>
+  </section>
+
+
+  <!-- ===================== TOP RATED ===================== -->
+  <section class="section-box">
+    <div class="section-title">
+      <h2>Top Rated This Week</h2>
+      <p>Film & series dengan rating tertinggi minggu ini</p>
+    </div>
+
+    <div id="topRatedGrid" class="home-grid"></div>
+  </section>
+
+
+  <!-- ===================== WRAPPED ===================== -->
+  <section class="section-box" id="wrapped">
+    <div class="section-title">
+      <h2>Moviews Wrapped 2025</h2>
+      <p>Ringkasan tontonan kamu selama 1 tahun</p>
+    </div>
+
+    <ul class="wrapped-list">
+      <li>Total Ditonton: <strong id="wrapTotal"></strong></li>
+      <li>Rata-rata Rating: <strong id="wrapAvg"></strong></li>
+      <li>Most Watched Region: <strong id="wrapRegion"></strong></li>
+      <li>Most Watched Platform: <strong id="wrapPlatform"></strong></li>
+      <li>Best Movie of The Year: <strong id="wrapBest"></strong></li>
+    </ul>
+  </section>
+
+</main>
+
+
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <div class="footer-main">
+
       <div class="footer-col footer-brand">
         <h3>Moviews</h3>
+        <p>Kumpulkan, review, dan temukan film terbaikmu.</p>
       </div>
 
       <div class="footer-col">
         <h4>Navigation</h4>
         <a href="index.html">Home</a>
-        <a href="profile.html">Reviews</a>
-        <a href="#watchlist">Watchlist</a>
-        <a href="detail.html">Profile</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="watchlist.html">Watchlist</a>
+        <a href="profile.html">Profile</a>
       </div>
 
       <div class="footer-col">
         <h4>Quick Links</h4>
-        <a href="#top">Top Rated</a>
-        <a href="#watchlist">My Watchlist</a>
-        <a href="detail.html">Sample Detail</a>
+        <a href="#top-rated">Top Rated</a>
+        <a href="#wrapped">Wrapped</a>
+        <a href="profile.html">My Stats</a>
       </div>
 
       <div class="footer-col">
@@ -124,10 +137,11 @@
           <span>GH</span>
         </div>
       </div>
+
     </div>
 
     <div class="footer-bottom">
-      <p>© 2025 Moviews – Tugas Frontend</p>
+      <p>© 2025 Moviews – nawranashira</p>
     </div>
   </footer>
 
